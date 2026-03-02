@@ -279,7 +279,9 @@ const Historico = () => {
       <div className="space-y-3 sm:space-y-6">
         {/* Seção: Consultas */}
         <div className="space-y-2 sm:space-y-3">
-          <h2 className="text-base sm:text-lg md:text-xl font-semibold text-foreground px-1">Consultas Realizadas</h2>
+          <div className="bg-card border border-border rounded-lg px-4 py-2.5">
+            <h2 className="text-base sm:text-lg font-semibold text-foreground">Consultas Realizadas</h2>
+          </div>
           <Card>
             <CardContent className="p-3 sm:p-4 md:p-6">
               <ConsultationsSection
@@ -294,55 +296,81 @@ const Historico = () => {
 
         {/* Seção: Pagamentos PIX */}
         <div className="space-y-2 sm:space-y-3">
-          <h2 className="text-base sm:text-lg md:text-xl font-semibold text-foreground px-1">Pagamentos PIX</h2>
+          <div className="bg-card border border-border rounded-lg px-4 py-2.5">
+            <h2 className="text-base sm:text-lg font-semibold text-foreground">Pagamentos PIX</h2>
+          </div>
           <PixPaymentsSection />
         </div>
 
         {/* Seção: Recargas */}
         <div className="space-y-2 sm:space-y-3">
-          <h2 className="text-base sm:text-lg md:text-xl font-semibold text-foreground px-1">Recargas e Depósitos</h2>
-          <RechargesSection
-            rechargeTransactions={rechargeTransactions}
-            formatBrazilianCurrency={formatBrazilianCurrency}
-            formatDate={formatDate}
-            loading={state.loading}
-          />
+          <div className="bg-card border border-border rounded-lg px-4 py-2.5">
+            <h2 className="text-base sm:text-lg font-semibold text-foreground">Recargas e Depósitos</h2>
+          </div>
+          <Card>
+            <CardContent className="p-3 sm:p-4 md:p-6">
+              <RechargesSection
+                rechargeTransactions={rechargeTransactions}
+                formatBrazilianCurrency={formatBrazilianCurrency}
+                formatDate={formatDate}
+                loading={state.loading}
+              />
+            </CardContent>
+          </Card>
         </div>
 
         {/* Seção: Compras */}
         <div className="space-y-2 sm:space-y-3">
-          <h2 className="text-base sm:text-lg md:text-xl font-semibold text-foreground px-1">Compras e Planos</h2>
-          <PurchasesSection
-            allHistory={state.allHistory}
-            formatBrazilianCurrency={formatBrazilianCurrency}
-            formatDate={formatDate}
-            loading={state.loading}
-          />
+          <div className="bg-card border border-border rounded-lg px-4 py-2.5">
+            <h2 className="text-base sm:text-lg font-semibold text-foreground">Compras e Planos</h2>
+          </div>
+          <Card>
+            <CardContent className="p-3 sm:p-4 md:p-6">
+              <PurchasesSection
+                allHistory={state.allHistory}
+                formatBrazilianCurrency={formatBrazilianCurrency}
+                formatDate={formatDate}
+                loading={state.loading}
+              />
+            </CardContent>
+          </Card>
         </div>
 
         {/* Seção: Indicações */}
         {state.referralEarnings.length > 0 && (
           <div className="space-y-2 sm:space-y-3">
-            <h2 className="text-base sm:text-lg md:text-xl font-semibold text-foreground px-1">Ganhos com Indicações</h2>
-            <ReferralsSection
-              referralEarnings={state.referralEarnings}
-              formatBrazilianCurrency={formatBrazilianCurrency}
-              formatDate={formatDate}
-              loading={state.loading}
-            />
+            <div className="bg-card border border-border rounded-lg px-4 py-2.5">
+              <h2 className="text-base sm:text-lg font-semibold text-foreground">Ganhos com Indicações</h2>
+            </div>
+            <Card>
+              <CardContent className="p-3 sm:p-4 md:p-6">
+                <ReferralsSection
+                  referralEarnings={state.referralEarnings}
+                  formatBrazilianCurrency={formatBrazilianCurrency}
+                  formatDate={formatDate}
+                  loading={state.loading}
+                />
+              </CardContent>
+            </Card>
           </div>
         )}
 
         {/* Seção: Cupons */}
         {state.cupomHistory.length > 0 && (
           <div className="space-y-2 sm:space-y-3">
-            <h2 className="text-base sm:text-lg md:text-xl font-semibold text-foreground px-1">Cupons Utilizados</h2>
-            <CouponsSection
-              cupomHistory={state.cupomHistory}
-              formatBrazilianCurrency={formatBrazilianCurrency}
-              formatDate={formatDate}
-              loading={state.loading}
-            />
+            <div className="bg-card border border-border rounded-lg px-4 py-2.5">
+              <h2 className="text-base sm:text-lg font-semibold text-foreground">Cupons Utilizados</h2>
+            </div>
+            <Card>
+              <CardContent className="p-3 sm:p-4 md:p-6">
+                <CouponsSection
+                  cupomHistory={state.cupomHistory}
+                  formatBrazilianCurrency={formatBrazilianCurrency}
+                  formatDate={formatDate}
+                  loading={state.loading}
+                />
+              </CardContent>
+            </Card>
           </div>
         )}
       </div>
