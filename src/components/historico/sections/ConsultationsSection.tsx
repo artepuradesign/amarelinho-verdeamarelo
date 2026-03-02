@@ -114,6 +114,7 @@ const ConsultationsSection: React.FC<ConsultationsSectionProps> = ({
             <TableRow>
               <TableHead className="w-20">ID</TableHead>
               <TableHead className="w-32">CPF</TableHead>
+              <TableHead className="w-32">Módulo</TableHead>
               <TableHead className="w-48">Data e Hora</TableHead>
               <TableHead className="w-24 text-right">Valor</TableHead>
               <TableHead className="w-24 text-center">Status</TableHead>
@@ -138,6 +139,11 @@ const ConsultationsSection: React.FC<ConsultationsSectionProps> = ({
                   </TableCell>
                   <TableCell className="font-mono text-sm">
                     {formatCPF(consultation.document || '')}
+                  </TableCell>
+                  <TableCell className="text-sm">
+                    <Badge variant="outline" className="text-xs">
+                      {(consultation.metadata?.module_title || consultation.module_type || 'N/A').toString().toUpperCase()}
+                    </Badge>
                   </TableCell>
                   <TableCell className="text-sm">
                     {formatFullDate(consultation.created_at)}

@@ -33,9 +33,9 @@ const Index = () => {
 
       <main className="w-full overflow-x-hidden">
         <HomeCarouselSection />
+        <PublicPlansSection />
         <WhatYouGetSection />
         <CleanHowItWorksSection />
-        <PublicPlansSection />
         <Testimonials />
       </main>
 
