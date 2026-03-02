@@ -11,7 +11,8 @@ export const useApiPlans = () => {
       setIsLoading(true);
       console.log('🔄 [PLANS] Iniciando carregamento de planos...');
       
-      const response = await planService.getAll();
+      // Usar /plans/active (mesmo endpoint da página pública que funciona)
+      const response = await planService.getActive();
       
       console.log('📊 [PLANS] Resposta da API:', response);
       
