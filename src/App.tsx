@@ -34,8 +34,6 @@ import Modulos from '@/pages/Modulos';
 import TermsOfService from '@/pages/TermsOfService';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import CookiePolicy from '@/pages/CookiePolicy';
-import Blog from '@/pages/Blog';
-import BlogPost from '@/pages/BlogPost';
 import NotificationsList from '@/pages/NotificationsList';
 import NotificationDetails from '@/pages/NotificationDetails';
 import NotificationsHelp from '@/pages/NotificationsHelp';
@@ -209,8 +207,6 @@ function App() {
                     <Route path="/api-docs" element={<ApiDocs />} />
                     <Route path="/planos" element={<PricingPage />} />
                     <Route path="/planos-publicos" element={<PublicPlanos />} />
-                    <Route path="/blog" element={<Blog />} />
-                    <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="/indicacoes" element={<IndicacoesPublicas />} />
                     <Route path="/modulos" element={<Modulos />} />
                     <Route path="/public-plan-payment" element={<PublicPlanPayment />} />
