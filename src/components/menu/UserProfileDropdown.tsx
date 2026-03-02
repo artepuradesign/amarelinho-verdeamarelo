@@ -38,8 +38,6 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({ onLogout }) =
 
   const currentPlan = subscription?.plan_name || planInfo?.name || user.tipoplano || 'Pré-Pago';
 
-  const dashboardPath = isSupport ? '/dashboard/admin' : '/dashboard';
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
