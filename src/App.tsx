@@ -28,6 +28,7 @@ import QRCodePage from '@/pages/QRCode';
 import AuthLoading from '@/pages/AuthLoading';
 import Logout from '@/pages/Logout';
 import IndicacoesPublicas from '@/pages/IndicacoesPublicas';
+import Modulos from '@/pages/Modulos';
 
 
 import TermsOfService from '@/pages/TermsOfService';
@@ -211,6 +212,7 @@ function App() {
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="/indicacoes" element={<IndicacoesPublicas />} />
+                    <Route path="/modulos" element={<Modulos />} />
                     <Route path="/public-plan-payment" element={<PublicPlanPayment />} />
                     
                     {/* Dashboard routes */}
