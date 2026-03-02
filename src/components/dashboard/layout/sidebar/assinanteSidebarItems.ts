@@ -10,21 +10,11 @@ export const createAssinanteSidebarItems = (handleLogout: () => void, panelMenus
       icon: LayoutDashboard,
       label: 'Dashboard',
       path: '/dashboard/admin'
-    },
-    {
-      icon: ClipboardList,
-      label: 'Pedidos',
-      path: '/dashboard/admin/pedidos'
     }] : []),
     {
       icon: LayoutDashboard,
-      label: 'Painel de Controle',
+      label: isSupport ? 'Painéis' : 'Painel de Controle',
       path: '/dashboard'
-    },
-    {
-      icon: ClipboardList,
-      label: 'Meus Pedidos',
-      path: '/dashboard/meus-pedidos'
     },
     {
       icon: User,
@@ -35,6 +25,11 @@ export const createAssinanteSidebarItems = (handleLogout: () => void, panelMenus
           icon: User,
           label: 'Dados Pessoais',
           path: '/dashboard/dados-pessoais'
+        },
+        {
+          icon: ClipboardList,
+          label: 'Meus Pedidos',
+          path: '/dashboard/meus-pedidos'
         },
         {
           icon: Wallet,
