@@ -148,12 +148,6 @@ const MenuSuperior = () => {
               <Link to="/planos-publicos">
                 <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">Planos</Button>
               </Link>
-              <Link to="/dashboard/suporte">
-                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">Suporte</Button>
-              </Link>
-              <Link to="/blog">
-                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">Blog</Button>
-              </Link>
             </nav>
 
             {user ? (
