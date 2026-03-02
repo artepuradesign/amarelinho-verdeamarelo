@@ -124,6 +124,11 @@ export const createAssinanteSidebarItems = (handleLogout: () => void, panelMenus
       path: '#',
       subItems: [
         {
+          icon: ClipboardList,
+          label: 'Pedidos',
+          path: '/dashboard/admin/pedidos'
+        },
+        {
           icon: Users,
           label: 'Gestão de Usuários',
           path: '/dashboard/gestao-usuarios'
