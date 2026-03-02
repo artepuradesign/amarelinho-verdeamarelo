@@ -135,6 +135,38 @@ class ApiService<T> {
     }
   }
 
+  async getActive(): Promise<ApiResponse<T[]>> {
+    try {
+      console.log(`🌐 [API_SERVICE] GET /${this.endpoint}/active (usando pool de conexões)`);
+      
+      const data = await centralApiRequest<any>(`/${this.endpoint}/active`, {
+        method: 'GET'
+      });
+      
+      return {
+        success: true,
+        data: data.data || data,
+        message: data.message
+      };
+    } catch (error) {
+      console.error(`❌ [API_SERVICE] Error fetching ${this.endpoint}/active:`, error);
+      
+      let errorMessage = 'Erro desconhecido';
+      if (error instanceof Error) {
+        if (error.message.includes('Failed to fetch')) {
+          errorMessage = 'Erro de conexão: Não foi possível conectar com a API. Verifique se a API está online.';
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
   async getById(id: number): Promise<ApiResponse<T>> {
     try {
       console.log(`🌐 [API_SERVICE] GET /${this.endpoint}/${id} (usando pool de conexões)`);
