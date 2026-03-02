@@ -167,8 +167,8 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({
     );
   }, [clickedItem, submenuPosition, collapsed, location.pathname, handleSubItemClick, handleMobileClick]);
 
-  // Remover "Painel de Controle" dos filteredItems já que será renderizado separadamente
-  const menuItems = filteredItems.filter(item => item.label !== 'Painel de Controle');
+  // Remover "Painéis Online" dos filteredItems já que será renderizado separadamente
+  const menuItems = filteredItems.filter(item => item.label !== 'Painéis Online');
 
   return (
     <TooltipProvider delayDuration={300}>
@@ -191,13 +191,13 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({
                   )}
                   <Home className={`${collapsed ? 'mx-auto' : 'mr-3'} shrink-0`} size={20} />
                   {!collapsed && (
-                    <span className="text-sm font-semibold relative z-10">Painel de Controle</span>
+                    <span className="text-sm font-semibold relative z-10">Painéis Online</span>
                   )}
                 </button>
               </TooltipTrigger>
               {collapsed && (
                 <TooltipContent side="right">
-                  <p>Painel de Controle</p>
+                  <p>Painéis Online</p>
                 </TooltipContent>
               )}
             </Tooltip>
