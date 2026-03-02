@@ -1,6 +1,6 @@
 
 import React from 'react';
-import TextLogo from '@/components/TextLogo';
+import { Package } from 'lucide-react';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 const LoginHeader: React.FC = () => {
