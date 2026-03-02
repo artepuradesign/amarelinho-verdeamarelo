@@ -133,7 +133,7 @@ const MenuSuperior = () => {
           <div className="md:hidden flex items-center gap-2">
             {/* Logo: ícone + texto para não logados, apenas ícone para logados */}
             <TextLogo to="/dashboard" showFullOnMobile={!user} />
-            {/* Theme Switcher removido - agora está dentro do UserWalletDropdown */}
+            <ThemeSwitcher />
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -142,7 +142,7 @@ const MenuSuperior = () => {
               <Link to="/">
                 <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">Início</Button>
               </Link>
-              <Link to="/planos-publicos">
+              <Link to="/modulos">
                 <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">Módulos</Button>
               </Link>
               <Link to="/planos-publicos">

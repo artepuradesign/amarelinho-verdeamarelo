@@ -73,11 +73,7 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({ onLogout }) =
           </div>
         </div>
 
-        <DropdownMenuItem onClick={() => navigate(dashboardPath)} className="cursor-pointer">
-          <House className="mr-2 h-4 w-4" />
-          Painel
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => navigate('/dashboard/perfil')} className="cursor-pointer">
+        <DropdownMenuItem onClick={() => navigate('/dashboard/dados-pessoais')} className="cursor-pointer">
           <User className="mr-2 h-4 w-4" />
           Meu perfil
         </DropdownMenuItem>
