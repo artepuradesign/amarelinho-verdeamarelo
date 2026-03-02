@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useUserSubscription } from '@/hooks/useUserSubscription';
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, User, Settings, LogOut, Crown, House } from 'lucide-react';
+import { ChevronDown, User, Settings, LogOut, Crown } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import {
   DropdownMenu,
