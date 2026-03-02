@@ -18,7 +18,7 @@ const Modulos = () => {
   const { modules, isLoading: modulesLoading } = useApiModules();
   const isMobile = useIsMobile();
 
-  const activePanels = Array.isArray(panels) ? panels.filter(p => p.is_active && p.name?.toLowerCase().includes('consult')) : [];
+  const activePanels = Array.isArray(panels) ? panels.filter(p => p.is_active) : [];
 
   const getIconComponent = (iconName: string) => {
     const IconComponent = Icons[iconName as keyof typeof Icons] as React.ComponentType<any>;
