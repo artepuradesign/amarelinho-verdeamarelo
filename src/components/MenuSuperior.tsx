@@ -211,37 +211,29 @@ const MenuSuperior = () => {
       {/* Mobile menu (< 768px) */}
       {isMenuOpen && (
         <>
-          {/* Dark Overlay */}
+          {/* Backdrop */}
           <div 
-            className="md:hidden fixed inset-0 bg-black/60 dark:bg-black/80 z-[800]"
+            className="md:hidden fixed inset-0 bg-background/80 backdrop-blur-sm z-[800] animate-in fade-in-0 duration-200"
             onClick={toggleMenu}
           />
           
-          {/* Centered Menu - Apenas Navegação */}
-          <div className="md:hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[900] w-[92vw] max-w-sm max-h-[72vh]">
-            {user ? (
-              <div className="h-full flex flex-col bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 shadow-2xl relative">
-                {/* Botão X Flutuante */}
-                <Button
+          {/* Slide-in Panel */}
+          <div className="md:hidden fixed inset-y-0 right-0 z-[900] w-[85vw] max-w-[320px] animate-in slide-in-from-right duration-300">
+            <div className="h-full flex flex-col bg-card border-l border-border shadow-2xl">
+              {/* Header */}
+              <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-gradient-to-r from-primary/5 to-transparent">
+                <span className="text-sm font-bold text-foreground tracking-tight">Menu</span>
+                <button 
                   onClick={toggleMenu}
-                  variant="ghost"
-                  size="icon"
-                  className="absolute top-3 right-3 z-10 h-8 w-8 rounded-full bg-white/80 dark:bg-gray-700/80 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-md"
+                  className="h-8 w-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                 >
                   <X className="h-4 w-4" />
-                </Button>
+                </button>
+              </div>
 
-                {/* Header */}
-                <div className="p-3 bg-gradient-to-r from-purple-500/10 to-blue-500/10 dark:from-purple-500/20 dark:to-blue-500/20 border-b border-gray-200 dark:border-gray-700">
-                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white flex items-center">
-                    <Menu className="w-4 h-4 mr-2 text-purple-600 dark:text-purple-400" />
-                    Menu de Navegação
-                  </h3>
-                </div>
-
-                {/* Scrollable Content */}
+              {user ? (
                 <ScrollArea className="flex-1">
-                  <div className="p-2">
+                  <div className="py-2">
                     <SidebarMenu
                       filteredItems={sidebarItems}
                       location={location}
@@ -253,100 +245,41 @@ const MenuSuperior = () => {
                       handleSubItemClick={handleSubItemClick}
                       setCollapsed={() => {}}
                     />
-                    
-                    {/* Botão de Logout */}
-                    <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                      <Button
-                        onClick={handleLogout}
-                        variant="outline"
-                        className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50 dark:text-red-400 dark:hover:text-red-300 dark:hover:bg-red-900/20 border-red-200 dark:border-red-800"
-                      >
-                        <LogOut className="w-4 h-4 mr-2" />
-                        Sair
-                      </Button>
-                    </div>
+                  </div>
+
+                  {/* Logout */}
+                  <div className="px-4 pb-6 pt-2">
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center w-full gap-3 px-4 py-3 rounded-xl text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Sair da conta
+                    </button>
                   </div>
                 </ScrollArea>
-              </div>
               ) : (
-              /* Menu para usuários não logados - compacto, igual ao estilo do menu logado */
-              <div className="h-full flex flex-col bg-background/80 backdrop-blur-xl rounded-xl border border-border shadow-2xl relative">
-                {/* Botão X Flutuante */}
-                <Button
-                  onClick={toggleMenu}
-                  variant="ghost"
-                  size="icon"
-                  className="absolute top-3 right-3 z-10 h-8 w-8 rounded-full bg-background/60 border border-border/60 text-muted-foreground hover:text-foreground hover:bg-background/80"
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-
-                {/* Header */}
-                <div className="p-3 bg-gradient-to-r from-primary/10 to-transparent border-b border-border">
-                  <h3 className="text-sm font-semibold text-foreground flex items-center">
-                    <Menu className="w-4 h-4 mr-2 text-primary" />
-                    Menu de Navegação
-                  </h3>
-                </div>
-
-                {/* Itens */}
                 <ScrollArea className="flex-1">
-                  <div className="p-2 space-y-1">
-                    <Link to="/login" onClick={toggleMenu} className="block">
-                      <Button variant="ghost" className="w-full justify-between h-11">
-                        <span className="flex items-center">
-                          <LogIn className="w-4 h-4 mr-2" />
-                          Entrar
-                        </span>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                      </Button>
-                    </Link>
-
-                    <Link to="/registration" onClick={toggleMenu} className="block">
-                      <Button variant="ghost" className="w-full justify-between h-11">
-                        <span className="flex items-center">
-                          <UserPlus className="w-4 h-4 mr-2" />
-                          Criar conta
-                        </span>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                      </Button>
-                    </Link>
-
-                    <Link to="/planos-publicos" onClick={toggleMenu} className="block">
-                      <Button variant="ghost" className="w-full justify-between h-11">
-                        <span className="flex items-center">
-                          <LayoutGrid className="w-4 h-4 mr-2" />
-                          Painéis disponíveis
-                        </span>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                      </Button>
-                    </Link>
-
-                    <Link to="/indicacoes" onClick={toggleMenu} className="block">
-                      <Button variant="ghost" className="w-full justify-between h-11">
-                        <span className="flex items-center">
-                          <Gift className="w-4 h-4 mr-2" />
-                          Indicações
-                        </span>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                      </Button>
-                    </Link>
-
-                    {/* Sair (deslogado) = apenas fechar */}
-                    <div className="pt-3 mt-3 border-t border-border">
-                      <Button
-                        onClick={toggleMenu}
-                        variant="outline"
-                        className="w-full justify-start"
-                      >
-                        <LogOut className="w-4 h-4 mr-2" />
-                        Sair
-                      </Button>
-                    </div>
-                  </div>
+                  <nav className="p-4 space-y-1">
+                    {[
+                      { to: '/login', icon: LogIn, label: 'Entrar' },
+                      { to: '/registration', icon: UserPlus, label: 'Criar conta' },
+                      { to: '/planos-publicos', icon: LayoutGrid, label: 'Painéis disponíveis' },
+                      { to: '/modulos', icon: Package, label: 'Módulos' },
+                      { to: '/indicacoes', icon: Gift, label: 'Indicações' },
+                    ].map(({ to, icon: ItemIcon, label }) => (
+                      <Link key={to} to={to} onClick={toggleMenu} className="block">
+                        <div className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-muted transition-colors">
+                          <ItemIcon className="w-4 h-4 text-muted-foreground" />
+                          <span className="flex-1">{label}</span>
+                          <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/60" />
+                        </div>
+                      </Link>
+                    ))}
+                  </nav>
                 </ScrollArea>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </>
       )}

@@ -13,7 +13,7 @@ export const createAssinanteSidebarItems = (handleLogout: () => void, panelMenus
     }] : []),
     {
       icon: LayoutDashboard,
-      label: isSupport ? 'Painéis' : 'Painel de Controle',
+      label: 'Painéis Online',
       path: '/dashboard'
     },
     {
@@ -110,13 +110,8 @@ export const createAssinanteSidebarItems = (handleLogout: () => void, panelMenus
         }
       ]
     },
-    // Grupo de Painéis Disponíveis
-    {
-      icon: Layers,
-      label: 'Painéis Disponíveis',
-      path: '#',
-      subItems: panelMenus
-    },
+    // Painéis injetados diretamente como itens de menu (sem wrapper)
+    ...panelMenus,
     // Menu de Administração apenas para usuários de suporte
     ...(isSupport ? [{
       icon: Settings,
