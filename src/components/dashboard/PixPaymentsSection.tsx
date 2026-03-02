@@ -110,19 +110,6 @@ export const PixPaymentsSection = () => {
 
   return (
     <>
-      {/* Barra de ações */}
-      <div className="flex items-center justify-end gap-2 mb-2 sm:mb-4">
-        <Button 
-          variant="outline" 
-          size="sm"
-          onClick={refreshPayments}
-          disabled={loading}
-        >
-          <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
-          Atualizar
-        </Button>
-      </div>
-
       {/* Lista de Pagamentos */}
       <Card>
         <CardContent className="p-0">

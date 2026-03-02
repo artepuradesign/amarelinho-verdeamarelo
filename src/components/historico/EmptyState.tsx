@@ -9,8 +9,8 @@ interface EmptyStateProps {
 }
 
 const EmptyState: React.FC<EmptyStateProps> = ({ title, subtitle, loading = false }) => (
-  <div className="py-10">
-    <div className="mx-auto max-w-md">
+  <div className="py-10 w-full">
+    <div className="w-full">
       <Card className="border-border bg-card">
         <CardContent className="p-6 text-center">
           {loading ? (
